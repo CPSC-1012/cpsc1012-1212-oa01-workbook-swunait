@@ -8,25 +8,52 @@ namespace ChineseZodiac
         {
             Console.Write("Enter a year: ");
             int year = int.Parse(Console.ReadLine());
-            switch (year % 12)
+            string animalName;
+            int offset = year % 12;
+            switch (offset)
             {
-                case 0: Console.WriteLine("monkey"); break;
-                case 1: Console.WriteLine("rooster"); break;
-                case 2: Console.WriteLine("dog"); break;
-                case 3: Console.WriteLine("pig"); break;
-                case 4: Console.WriteLine("rat"); break;
-                case 5: Console.WriteLine("ox"); break;
-                case 6: Console.WriteLine("tiger"); break;
-                case 7: Console.WriteLine("rabbit"); break;
-                 case 8: Console.WriteLine("dragon"); break;
-                case 9: Console.WriteLine("snake"); break;
-                case 10: Console.WriteLine("horse"); break;
-                case 11: Console.WriteLine("sheep"); break;
+                case 0: 
+                    animalName = "monkey"; 
+                    break;
+                case 1: 
+                    animalName = "rooster"; 
+                    break;
+                case 2:
+                    animalName = "dog"; 
+                    break;
+                case 3:
+                    animalName = "pig"; 
+                    break;
+                case 4:
+                    animalName = "rat"; 
+                    break;
+                case 5:
+                    animalName = "ox";
+                    break;
+                case 6:
+                    animalName = "tiger";
+                    break;
+                case 7:
+                    animalName =  "rabbit"; 
+                    break;
+                case 8: 
+                    animalName = "dragon"; 
+                    break;
+                case 9:
+                    animalName = "snake"; 
+                    break;
+                case 10:
+                    animalName = "horse"; 
+                    break;
+                case 11:
+                    animalName = "sheep"; 
+                    break;
                 default:
-                    Console.WriteLine("logical error");
+                    animalName = "logical error";
                     break;
 
             }
+            Console.WriteLine($"Year of the {animalName} {year} ");
 
         }
     }
