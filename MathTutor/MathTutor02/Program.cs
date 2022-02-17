@@ -6,6 +6,10 @@ namespace MathTutor02
     {
         static void Main(string[] args)
         {
+            // Declare a variable to track user attempts
+            int userAttempts = 0;
+            // Declare a variabel to trac if user wants to try again
+            bool tryAgain = false;
             // Create a Random object for generating random numbers
             Random rand = new Random();
             // Generate two random numbers between 1 and 99
@@ -13,19 +17,36 @@ namespace MathTutor02
             int num2 = rand.Next(1, 100);
             // Compute the correct additional answer
             int correctAnswer = num1 + num2;
-            // Prompt the user for the answer to the addition question
-            int userAnswer = PromptForIntegerValue($"What is {num1} + {num2} = ? ");
-            // Determine if the user answer is correct
-            if (userAnswer == correctAnswer)
+
+
+            do
             {
-                // Correct Answer
-                Console.WriteLine($"Correct! {num1} + {num2} = {correctAnswer}");
-            }
-            else
-            {
-                // Incorrect Answer
-                Console.WriteLine($"Incorrect! The correct answer is {correctAnswer}.");
-            }
+                // Prompt the user for the answer to the addition question
+                int userAnswer = PromptForIntegerValue($"What is {num1} + {num2} = ? ");
+                // Increment userAttempts
+                userAttempts++;
+                // Determine if the user answer is correct
+                if (userAnswer == correctAnswer)
+                {
+                    // Answer is correct
+                    Console.WriteLine($"Correct!  You got the correct answer in {userAttempts} attempts.");
+                    // User does not need to try again
+                    tryAgain = false;
+                }
+                else
+                {
+                    // Answer is incorrect
+                    Console.Write("Incorrect! Would you like to try again (y/n)?");
+                    tryAgain = char.ToLower(Console.ReadKey().KeyChar) == 'y' ? true : false;
+                    Console.WriteLine();
+                    if (tryAgain == false)
+                    {
+                        Console.WriteLine($"The correct answer is {correctAnswer}.");
+                    }
+                }
+
+            } while (tryAgain == true); // (tryAgain)           
+
         }
 
         static int PromptForIntegerValue(string message)
