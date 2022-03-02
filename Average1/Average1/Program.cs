@@ -1,5 +1,7 @@
 ﻿using System;
 
+using Cpsc1012;
+
 namespace Average1
 {
     internal class Program
@@ -14,7 +16,7 @@ namespace Average1
 
             while (sentinelValueEntered == false)
             {
-                int number = PromptForPositiveNumber("Enter a number (999 to end): ");
+                int number = Utilities.PromptForPositiveNumber("Enter a number (999 to end): ");
                 if (number != SentinelValue)
                 {
                     count++;
@@ -35,30 +37,30 @@ namespace Average1
 
         }
 
-        static int PromptForPositiveNumber(string message)
-        {
-            int number = 0;
-            bool validNumber = false;
-            while (validNumber == false)
-            {
-                Console.Write(message);
-                if (int.TryParse(Console.ReadLine(), out number))
-                {
-                    if (number > 0 )
-                    {
-                        validNumber = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Error! Number must be a positive non-zero number");
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("Error! Input must be integer number");
-                }
-            }
-            return number;
-        }
+        //static int PromptForPositiveNumber(string message)
+        //{
+        //    int number = 0;
+        //    bool validNumber = false;
+        //    while (validNumber == false)
+        //    {
+        //        Console.Write(message);
+        //        if (int.TryParse(Console.ReadLine(), out number))
+        //        {
+        //            if (number > 0 )
+        //            {
+        //                validNumber = true;
+        //            }
+        //            else
+        //            {
+        //                Console.WriteLine("Error! Number must be a positive non-zero number");
+        //            }
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("Error! Input must be integer number");
+        //        }
+        //    }
+        //    return number;
+        //}
     }
 }
