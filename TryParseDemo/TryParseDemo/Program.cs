@@ -69,13 +69,18 @@ namespace TryParseDemo
 666. Exit program.
 ");
                     Console.Write("Enter your choice >: ");
-                    validMenuChoiceInput = int.TryParse(Console.ReadLine(), out menuChoice);
-                    if (validMenuChoiceInput 
-                        && (menuChoice == 1 || menuChoice == 2 || 
-                            menuChoice == 99 || menuChoice == 666) ) 
+                    if (int.TryParse(Console.ReadLine(), out menuChoice) )
                     {
-                        validMenuChoiceInput = true;
+                        if ( menuChoice == 1 
+                            || menuChoice == 2 
+                            || menuChoice == 99 
+                            || menuChoice == 666
+                            )
+                        {
+                            validMenuChoiceInput = true;
+                        }
                     }
+                    
                 }
 
                 switch (menuChoice)
@@ -87,19 +92,23 @@ namespace TryParseDemo
                             while (validPlayerNumber == false)
                             {
                                 Console.Write("Enter the hockey player number (1-99): ");
-                                validPlayerNumber = int.TryParse(Console.ReadLine(), out hockeyPlayerNumber);
-                                if (validPlayerNumber && 
-                                        (hockeyPlayerNumber >= 1 && hockeyPlayerNumber <= 99))
+                                if (int.TryParse(Console.ReadLine(), out hockeyPlayerNumber))
                                 {
-                                    validPlayerNumber = true;
+                                    if (hockeyPlayerNumber >= 1 && hockeyPlayerNumber <= 99)
+                                    {
+                                        validPlayerNumber = true;
+                                    }
+                                    else
+                                    {
+                                        validPlayerNumber = false;
+                                        Console.WriteLine($"The hockey player must be between 1 and 99.");
+                                    }
                                 }
                                 else
                                 {
-                                    validPlayerNumber = false;
-                                    Console.WriteLine($"The hockey player must be between 1 and 99.");
-                                }
+                                    Console.WriteLine("Invalid input value! Please make you enter a numeric integer value.");
+                                }                                
                             }                                                                          
-
                         }
                         break;
                     case 2: // enter player points
@@ -109,15 +118,21 @@ namespace TryParseDemo
                             while (validPlayerPoints == false)
                             {
                                 Console.Write("Enter the hockey player points: ");
-                                validPlayerPoints = int.TryParse(Console.ReadLine(), out hockeyPlayerPoints);
-                                if (validPlayerPoints && hockeyPlayerPoints >= 0)
+                                if (int.TryParse(Console.ReadLine(), out hockeyPlayerPoints))
                                 {
-                                    validPlayerPoints = true;
+                                    if (hockeyPlayerPoints >= 0)
+                                    {
+                                        validPlayerPoints = true;
+                                    }
+                                    else
+                                    {
+                                        validPlayerPoints = false;
+                                        Console.WriteLine($"The hockey player points must be a positive number.");
+                                    }
                                 }
                                 else
                                 {
-                                    validPlayerPoints = false;
-                                    Console.WriteLine($"The hockey player points must be a positive number.");
+                                    Console.WriteLine("Invalid input value! Please make you enter a numeric integer value.");
                                 }
                             }
                         }
