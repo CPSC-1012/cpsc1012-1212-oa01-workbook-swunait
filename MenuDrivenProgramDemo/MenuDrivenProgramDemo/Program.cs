@@ -6,10 +6,9 @@ namespace MenuDrivenProgramDemo
     {
         static void Main(string[] args)
         {
-            int userChoice;
+            int menuChoice;
             int number = 0;
             double points = 0.0;
-            bool validChoice = true;
             do
             {
                 Console.WriteLine("Hockey Player Stats");
@@ -19,11 +18,9 @@ namespace MenuDrivenProgramDemo
                 Console.WriteLine("99. Display player info (number and points)");
                 Console.WriteLine("666. Exit Program");
                 Console.Write("Enter your choice >: ");
-                validChoice = int.TryParse(Console.ReadLine(), out userChoice);
-
-                if (validChoice)
+                if (int.TryParse(Console.ReadLine(), out menuChoice))
                 {
-                    switch (userChoice)
+                    switch (menuChoice)
                     {
                         case 1:
                             bool validNumber = true;
@@ -48,8 +45,12 @@ namespace MenuDrivenProgramDemo
                             break;
                     }
                 }
+                else
+                {
+                    Console.WriteLine("Invalid input value! Value must be a numeric integer.");
+                }
                 
-            } while (!validChoice || userChoice != 666);
+            } while (menuChoice != 666);
         }
     }
 }
