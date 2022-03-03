@@ -17,11 +17,18 @@ namespace Question04
                 volume;
 
             length = Utilities.PromptForPositiveNumber("Enter length of rectangle: ");
+            width = Utilities.PromptForPositiveNumber("Enter width of rectangle: ");
+            height = Utilities.PromptForPositiveNumber("Enter height of rectangle: ");
+
             // Call CalculateArea to return the area of the rectangle
+            area = CalculateArea(length, width, height);
 
             // Call CalculateVolume to return the volune of the rectangle
+            volume = CalculateVolume(length, width, height);
 
             // Display the area and volume of the rectangle
+            Console.WriteLine($"The area of the rectangle is {area}");
+            Console.WriteLine($"The volume of the rectangle is {volume}");
         }
 
         static int CalculateArea(int length, int width, int height)
