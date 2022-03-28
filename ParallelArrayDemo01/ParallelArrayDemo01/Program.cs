@@ -4,6 +4,27 @@ namespace ParallelArrayDemo01
 {
     internal class Program
     {
+        static string PromptForMinimumString(string prompt, int minimumLength)
+        {
+            string stringValue = "";
+            bool validLength = false;
+            do
+            {
+                Console.Write(prompt);
+                stringValue = Console.ReadLine();
+                if (!string.IsNullOrWhiteSpace(stringValue) && stringValue.Trim().Length >= minimumLength)
+                {
+                    validLength = true;
+                }
+                else
+                {
+                    Console.WriteLine($"String must contain at least {minimumLength} characters");
+                }
+
+            } while (!validLength);
+
+            return stringValue.Trim();
+        }
         // Create a method that is passed in the array of student names and array of student marks
         // and it will print the name of mark of each student
         static void PrintStudentMarks(string[] nameArray, double[] markArray, int studentCount)
