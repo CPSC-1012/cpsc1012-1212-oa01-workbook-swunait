@@ -29,7 +29,7 @@ namespace FileIODemo
             try
             {
                 // Over-write the file 
-                StreamWriter writer = new StreamWriter(OutputDataFilePath);
+                StreamWriter writer = new StreamWriter(OutputDataFilePath, true);
                 // To append to the file instead you cause
                 // StreamWriter writer = new StreamWriter(DataFilePath, true);
                 for (int index = 0; index < studentCount; index++)
